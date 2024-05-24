@@ -43,6 +43,7 @@ function Vote() {
 
 
   //**** API Start ****// 
+  /* We can divide into seperate components for voters, candidated and results */
 
   const GetCandidates = async () => {
     let res = await axios.get("/candidate")
@@ -59,13 +60,11 @@ function Vote() {
   const GetVote = async () => {
     let res = await axios.get("/vote")
     setVoteList(res.data.data)
-    console.table(res.data.data)
-    debugger
+    console.table(res.data.data)    
   }
 
   const AddVoter = async () => {
-    let res = await axios.post("/voter", selectedVoter)
-    debugger
+    let res = await axios.post("/voter", selectedVoter)    
     setVoterList([...voterList, res.data.data])
     alert('Voter Added.')
     toggle_Voter()
@@ -85,8 +84,7 @@ function Vote() {
 
     }
 
-    let res = await axios.post("/vote", vote)
-    debugger
+    let res = await axios.post("/vote", vote)    
     setVoteList([...voteList,res.data.data])
     alert(voterList.find(x => x.id == vote.voterId).name + ' Voted For ' + candidateList.find(x => x.id == vote.candidateId).name)
   }
@@ -213,7 +211,7 @@ function Vote() {
               </thead>
               <tbody>
                 {candidateList.map((item, index) => {
-                  debugger
+                  
                   return (
                     <tr key={index}>
                       <td>{item.id}</td>
@@ -244,8 +242,7 @@ function Vote() {
           </Col>
           <Col md="5" >
             <select
-              onChange={(e) => {
-                debugger
+              onChange={(e) => {                
                 setVote({ voterId: vote.voterId, candidateId: e.target.value })
               }}
               value={vote.candidateId}
