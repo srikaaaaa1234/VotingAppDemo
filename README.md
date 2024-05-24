@@ -27,4 +27,11 @@ Below are the steps to run:
 14. npm run dev
 
 Then in browser we can add voters, candidates.
-Similarly vote for candidate.
+Similarly vote for candidate. (In vite.config.js) https can be set to false for dev purpose
+
+Add voter screenshot
+
+![image](https://github.com/srikaaaaa1234/VotingAppDemo/assets/39992347/1548a0e8-c3e5-45be-9d68-7418594a1bab)
+
+
+
